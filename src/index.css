@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: "Cormorant Garamond", serif;
+  background-color: #2a050a;
+}
+
+/* ─── ambient background glow ──────────────────────────────────────────────── */
+.rose-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(179, 27, 44, 0.35),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(240, 197, 106, 0.2),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(248, 215, 220, 0.18),
+      transparent 50%
+    );
+  z-index: 0;
+}
+
+/* ─── rose petal helper ────────────────────────────────────────────────────── */
+.rose-petal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #f8d7dc,
+    #f4b2bf 45%,
+    #b31b2c 75%
+  );
+  box-shadow: 0 0 25px rgba(179, 27, 44, 0.45);
+  filter: drop-shadow(0 10px 20px rgba(58, 6, 10, 0.4));
+}
+
+.rose-petal::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* ─── postcard surface ─────────────────────────────────────────────────────── */
+.postcard {
+  background: linear-gradient(
+    145deg,
+    #fdf6ef 0%,
+    #f9ede0 40%,
+    #f3e5d8 100%
+  );
+  border: 2px solid rgba(74, 14, 22, 0.15);
+  box-shadow:
+    0 8px 40px rgba(20, 6, 9, 0.25),
+    0 2px 8px rgba(20, 6, 9, 0.12),
+    inset 0 0 80px rgba(243, 229, 216, 0.5);
+}
+
+/* decorative inner border */
+.postcard-inner-border {
+  border: 1px solid rgba(74, 14, 22, 0.08);
+  outline: 1px solid rgba(240, 197, 106, 0.18);
+  outline-offset: 4px;
+}
+
+/* ─── stamp ────────────────────────────────────────────────────────────────── */
+.postcard-stamp {
+  width: 72px;
+  height: 88px;
+  background: linear-gradient(135deg, #f4b2bf 0%, #b31b2c 100%);
+  border: 3px solid #fdf6ef;
+  box-shadow:
+    0 0 0 1px rgba(74, 14, 22, 0.15),
+    0 2px 8px rgba(74, 14, 22, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.postcard-stamp::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: repeating-conic-gradient(
+    rgba(74, 14, 22, 0.12) 0% 25%,
+    transparent 0% 50%
+  );
+  background-size: 8px 8px;
+  z-index: -1;
+}
+
+/* ─── postmark ─────────────────────────────────────────────────────────────── */
+.postmark {
+  color: rgba(74, 14, 22, 0.2);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transform: rotate(-12deg);
+}
+
+.postmark-circle {
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgba(74, 14, 22, 0.15);
+  border-radius: 50%;
+  position: relative;
+}
+
+.postmark-circle::before,
+.postmark-circle::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  height: 2px;
+  background: rgba(74, 14, 22, 0.15);
+}
+
+.postmark-circle::before {
+  top: 40%;
+}
+
+.postmark-circle::after {
+  top: 60%;
+}
+
+/* ─── section divider ──────────────────────────────────────────────────────── */
+.postcard-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(74, 14, 22, 0.15) 20%,
+    rgba(179, 27, 44, 0.2) 50%,
+    rgba(74, 14, 22, 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* ─── address lines ────────────────────────────────────────────────────────── */
+.address-line {
+  border-bottom: 1px solid rgba(74, 14, 22, 0.12);
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+/* ─── card flip ────────────────────────────────────────────────────────────── */
+.perspective-container {
+  perspective: 1400px;
+}
+
+/* ─── scrollbar (keep it elegant on the postcard) ──────────────────────────── */
+.postcard::-webkit-scrollbar {
+  width: 6px;
+}
+
+.postcard::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.postcard::-webkit-scrollbar-thumb {
+  background: rgba(179, 27, 44, 0.2);
+  border-radius: 3px;
+}
+
+/* ─── note card within postcard ────────────────────────────────────────────── */
+.note-card {
+  background: linear-gradient(
+    135deg,
+    rgba(253, 246, 239, 0.7) 0%,
+    rgba(243, 229, 216, 0.5) 100%
+  );
+  border: 1px solid rgba(74, 14, 22, 0.1);
+}
+
+/* ─── rose watermark ───────────────────────────────────────────────────────── */
+.rose-watermark {
+  opacity: 0.04;
+  filter: grayscale(100%);
+  pointer-events: none;
+}
