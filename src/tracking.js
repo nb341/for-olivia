@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 // 1. Create an account → "Email Services" → add Gmail/Outlook → copy Service ID.
 // 2. "Email Templates" → new template with variables:
 //      {{visit_count}}, {{total_time}}, {{current_session}}, {{last_visit}}
-//    Copy the Template ID.
+//    Copy the Template ID
 // 3. "Account" → copy Public Key.
 const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
 const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
